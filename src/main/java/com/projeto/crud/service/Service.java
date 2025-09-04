@@ -9,25 +9,25 @@ import java.util.Optional;
 @org.springframework.stereotype.Service
 public class Service {
 
-    private final Repository repository;
+    private final Repository Repository;
 
-    public Service(Repository repository) {
-        this.repository = repository;
+    public Service(Repository Repository) {
+        this.Repository = Repository;
     }
 
     public Iterable<User> getAllUsers() {
-        return repository.findAll();
+        return Repository.findAll();
     }
 
     public Optional<User> getUserById(Long id) {
-        return repository.findById(id);
+        return Repository.findById(id);
     }
 
     public User saveUser(User user) {
-        return repository.save(user);
+        return (User) Repository.save(user);
     }
 
     public void deleteUser(Long id) {
-        repository.deleteById(id);
+        Repository.deleteById(Math.toIntExact(id));
     }
 }

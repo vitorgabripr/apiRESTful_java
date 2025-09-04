@@ -1,8 +1,11 @@
 package com.projeto.crud.repository;
 
+import com.projeto.crud.model.Model;
 import org.apache.catalina.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Repository extends CrudRepository<User, Long> {
+import java.util.Optional;
 
+public interface Repository extends JpaRepository<Model, Integer> {
+    Optional<User> findById(Long id);
 }
