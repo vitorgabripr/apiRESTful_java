@@ -1,7 +1,7 @@
 package com.projeto.crud.service;
 
+import com.projeto.crud.model.Model;
 import com.projeto.crud.repository.Repository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
@@ -15,19 +15,19 @@ public class Service {
         this.Repository = Repository;
     }
 
-    public Iterable<User> getAllUsers() {
+    public Iterable<Model> getAllUsers() {
         return Repository.findAll();
     }
 
-    public Optional<User> getUserById(Long id) {
+    public Optional<Model> getUserById(Long id) {
         return Repository.findById(id);
     }
 
-    public User saveUser(User user) {
-        return (User) Repository.save(user);
+    public Model saveUser(Model user) {
+        return (Model) Repository.save(user);
     }
 
     public void deleteUser(Long id) {
-        Repository.deleteById(Math.toIntExact(id));
+        Repository.deleteById(id);
     }
 }
