@@ -1,13 +1,11 @@
 package com.projeto.crud.controller;
 
+import com.projeto.crud.exception.UserNotFound;
 import com.projeto.crud.model.Model;
 import com.projeto.crud.service.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/users")
 public class Controller {
@@ -25,7 +23,7 @@ public class Controller {
 
     @GetMapping("/{id}")
     public Model getOne(@PathVariable Long id) {
-        return service.getUserById(id).orElseThrow(() -> new NoSuchElementException("User not found with id: " + id));
+        return service.getUserById(id).orElseThrow(() -> new UserNotFound("User not found"));
     }
 
     @PostMapping
