@@ -38,9 +38,9 @@ public class Controller {
         service.deleteUser(id);
     }
 
-    @PutMapping("/{id}/nome") //verificar se está certo
-    public ResponseEntity <Model> updateName(@PathVariable Long id, String nome){
-        Model updatedUser = service.updateUser(id, nome);
+    @PutMapping("/{id}")
+    public ResponseEntity<Model> updateName(@PathVariable Long id, @RequestBody Model model) {
+        Model updatedUser = service.updateUser(id, model.getNome());
         return ResponseEntity.ok(updatedUser);
     }
 }
