@@ -30,4 +30,11 @@ public class Service {
     public void deleteUser(Long id) {
         Repository.deleteById(id);
     }
+
+    public Model updateUser(Long id, String nome) {
+        Model user = Repository.findById(id)
+                .orElseThrow(() -> new com.projeto.crud.exception.UserNotFound("User not found"));
+        user.setNome(nome);
+        return Repository.save(user);
+    }
 }
