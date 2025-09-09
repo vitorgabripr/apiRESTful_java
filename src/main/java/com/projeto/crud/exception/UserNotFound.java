@@ -11,3 +11,4 @@ public class UserNotFound extends RuntimeException {
         super(message);
     }
 }
+ 
