@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @Entity
 public class Model {
@@ -26,6 +27,10 @@ public class Model {
     }
 
     public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void updateName(String nome) {
         this.nome = nome;
     }
 }
