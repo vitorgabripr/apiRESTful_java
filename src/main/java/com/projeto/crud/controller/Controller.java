@@ -34,7 +34,7 @@ public class Controller {
         return repository.findAll();
     }
 
-    private Service service;
+    private final Service service;
 
     public Controller(Service service) {
         this.service = service;
