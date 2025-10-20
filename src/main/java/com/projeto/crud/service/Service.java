@@ -2,8 +2,6 @@ package com.projeto.crud.service;
 
 import com.projeto.crud.model.Model;
 import com.projeto.crud.repository.Repository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
