@@ -67,10 +67,6 @@ public class Controller {
                 .body("Nome e email são obrigatórios e não podem estar vazios");
         }
         
-        // Limpar espaços em branco e salvar
-        //ta limpando as variaveis antes de salvar / arrumar 
-        // user.setName(name.trim());
-        // user.setEmail(email.trim());
         
         Model savedUser = service.saveUser(user);
         logger.debug("create saved id={}", savedUser.getId());
