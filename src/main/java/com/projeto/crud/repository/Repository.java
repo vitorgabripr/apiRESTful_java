@@ -7,4 +7,4 @@ import org.springframework.lang.NonNull;
 public interface Repository extends JpaRepository<Model, Long> {
     @Override
     @NonNull Optional<Model> findById(@NonNull Long id);
-}
+};

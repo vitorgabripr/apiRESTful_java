@@ -68,8 +68,9 @@ public class Controller {
         }
         
         // Limpar espaços em branco e salvar
-        user.setName(name.trim());
-        user.setEmail(email.trim());
+        //ta limpando as variaveis antes de salvar / arrumar 
+        // user.setName(name.trim());
+        // user.setEmail(email.trim());
         
         Model savedUser = service.saveUser(user);
         logger.debug("create saved id={}", savedUser.getId());
