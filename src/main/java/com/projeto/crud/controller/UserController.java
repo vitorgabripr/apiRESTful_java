@@ -30,4 +30,18 @@ public class UserController {
         return userInfoService.addUser(userInfo);
     }
     
+    //removed the role checks here as they are alredy managed in securityconfig
+
+    @PostMapping("/generateToken")
+    public String authenticateAndGetToken(@RequestBody AuthRequest authRequest){
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+        );
+
+        if(authentication.isAuthenticated()){
+            return jwtService.generateToken(authRequest.getUsername());
+        } else {
+            throw new UsernameNotFoundException("Invalid user request!");
+        }
+    }
 }
